@@ -1,9 +1,7 @@
 <template>
-   <section><h1>salom</h1></section>
+   <RouterView></RouterView>
 </template>
 
-<script setup>
-import HelloWorld from "./components/HelloWorld.vue";
-</script>
+<script setup></script>
 
 <style scoped></style>

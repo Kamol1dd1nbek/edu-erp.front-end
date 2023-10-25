@@ -6,9 +6,10 @@ export default {
          colors: {
             baseBg: "#E7EDF0",
             baseText: "#065FD4",
-            seconsBg: "#12486B",
+            secondBg: "#12486B",
             baseBlack: "#0D1523",
             baseRed: "#F87F7F",
+            reddish: "#F46161",
          },
       },
    },

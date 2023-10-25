@@ -1,68 +1,56 @@
 <template>
-   <div class="inputBox">
-       <input type="text" :name="name" />
-      <span>Phone number</span>
+   <div class="w-full">
+      <label
+         class="ml-4 text-baseText text-[19px] font-normal"
+         v-if="labeled"
+         for="name"
+         >{{ label }}<span class="text-baseRed"> *</span></label
+      >
+      <vee-field
+         v-if="masked"
+         class="w-full p-[16px] outline-none font-normal text-[18px] rounded my-[7px] border bg-white border-[rgba(0, 0, 0, 0.38)]"
+         v-mask="'(+998) ##-###-##-##'"
+         :placeholder="placeHolder"
+         masked="true"
+         :type="type"
+         :name="name"
+      />
+      <vee-field
+         v-else
+         class="w-full p-[16px] outline-none font-normal text-[21px] rounded mt-[7px]"
+         :placeholder="placeHolder"
+         :type="type"
+         :name="name"
+      />
+      <ErrorMessage
+         class="text-reddish mt-2 text-[16px] font-medium"
+         :name="name"
+      />
    </div>
 </template>
 
 <script setup>
+// imports
+import { ErrorMessage } from "vee-validate";
+
+// Props
 const props = defineProps({
    type: {
       type: String,
-      defaut: "text",
+      default: "text",
    },
-   name: {
-      type: String,
+   masked: {
+      type: Boolean,
+      default: false,
    },
-   label: {
-      type: String,
+   labeled: {
+      type: Boolean,
+      default: true,
    },
+   placeHolder: String,
+   label: String,
+   name: String,
 });
-console.log(props.label);
 </script>
 
-<style lang="scss" scoped>
-.inputBox {
-  position: relative;
-  width: 250px;
-
-  input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    background: #1d2b3a;
-    outline: none;
-    color: #fff;
-    font-size: 1em;
-    transition: 0.5s;
-  }
-
-  span {
-    position: absolute;
-    left: 0;
-    padding: 10px;
-    pointer-events: none;
-    font-size: 1em;
-    color: rgba(255, 255, 255, 0.25);
-    text-transform: uppercase;
-    transition: 0.5s;
-  }
-
-  input { &:focus ~ span {
-      color: #00dfc4;
-      transform: translateX(10px) translateY(-7px);
-      font-size: 0.65em;
-      padding: 0 10px;
-      background: #1d2b3a;
-      border-left: 1px solid #00dfc4;
-      border-right: 1px solid #00dfc4;
-      letter-spacing: 0.2em;
-    }
-
-    &:valid, &:focus {
-      border: 1px solid #00dfc4;
-    }
-  }
-}
-
-</style>
+<style lang="scss" scoped></style>

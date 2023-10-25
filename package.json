@@ -15,7 +15,8 @@
     "pinia": "^2.1.7",
     "vee-validate": "^4.11.8",
     "vue": "^3.3.4",
-    "vue-router": "^4.2.5"
+    "vue-router": "^4.2.5",
+    "vue-the-mask": "^0.11.1"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.2.3",

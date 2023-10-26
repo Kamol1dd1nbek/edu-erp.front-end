@@ -19,7 +19,17 @@ router.beforeResolve((to, from, next) => {
 });
 
 router.beforeEach((to, from, next) => {
-   next();
+   const token = localStorage.getItem("token");
+   const name = to.name === "auth";
+   if (!token && !name) {
+      return next({ name: "auth" });
+   } else {
+      if (token && name) {
+         return next({ name: "students" });
+      } else {
+         next();
+      }
+   }
 });
 
 router.afterEach(() => {

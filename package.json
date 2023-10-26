@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@jamescoyle/vue-icon": "^0.1.2",
+    "@mdi/js": "^7.3.67",
     "@vee-validate/rules": "^4.11.8",
     "axios": "^1.5.1",
     "nprogress": "^0.2.0",

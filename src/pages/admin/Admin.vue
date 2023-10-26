@@ -1,13 +1,11 @@
 <template>
-    <div>
-        <h1>Admin</h1>
-    </div>
+   <MainLayout>
+      <RouterView></RouterView>
+   </MainLayout>
 </template>
 
-<script setup lang="ts">
-
+<script setup>
+import MainLayout from "../../layout/MainLayout.vue";
 </script>
 
-<style scoped>
-
-</style>
+<style lang="scss" scoped></style>

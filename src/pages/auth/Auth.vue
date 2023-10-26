@@ -9,9 +9,12 @@
          <vee-form
             @submit="send"
             :validation-schema="schema"
-            class="w-[90%] mt-[20px] flex flex-col gap-[30px]"
+            class="w-[90%] mt-[20px] flex flex-col gap-[30px] pb-8"
          >
-            <Warning v-if="1 !== 1" title="Phone number or password wrong!"/>
+            <Warning
+               v-if="authStore.userData.error"
+               :title="authStore.userData.error.message"
+            />
             <div class="w-full flex justify-between items-center">
                <VInput
                   type="text"
@@ -29,7 +32,9 @@
                   placeHolder="Password"
                ></VPasswordInput>
             </div>
-            <button type="submit">send</button>
+            <VButton type="submit" btn_type="primary"
+             :isLoading="authStore.userData.loading"  >{{ btn_title }}</VButton
+            >
          </vee-form>
       </div>
    </section>
@@ -37,28 +42,28 @@
 
 <script setup>
 // imports
+import VPasswordInput from "../../components/form/VPasswordInput.vue";
+import VButton from "../../components/form/VButton.vue";
 import VInput from "../../components/form/VInput.vue";
 import Warning from "../../components/ui/Alert.vue";
-import VPasswordInput from "../../components/form/VPasswordInput.vue";
-import { computed, ref } from "vue";
+import phoneEditor from "../../hooks/phoneEditor";
+import { useAuthStore } from "../../stores/auth";
+import { computed, ref, watch } from "vue";
 
 // store
-// const authStore = useAuthStore();
-
-// variables
-const loading = ref(false);
+const authStore = useAuthStore();
 
 // Validation schema
 const schema = computed(() => {
    return {
       password: "required|min:6|max:15",
-      phone: "required|min:8|max:19",
+      phone: "required|min:8|max:25",
    };
 });
 
 // Button text
 const btn_title = computed(() => {
-   if (loading.value) {
+   if (authStore.userData.loading) {
       return "Loading...";
    } else {
       return "Login";
@@ -66,18 +71,12 @@ const btn_title = computed(() => {
 });
 
 // Log In
-const login = async (values) => {
-   loading.value = true;
+const send = async (values) => {
    const payload = {
-      phone: phoneEditor(values.phone),
+      username: phoneEditor(values.phone),
       password: values.password,
    };
    await authStore.authLogin(payload);
-   loading.value = false;
-};
-
-const send = (vals) => {
-   console.log(vals);
 };
 </script>
 <style lang="scss" scoped></style>

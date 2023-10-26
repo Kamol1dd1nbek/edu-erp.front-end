@@ -2,7 +2,7 @@ import axiosClient from "../apiClient";
 
 const authApi = {
    login(payload) {
-      const url = `/login`;
+      const url = `login`;
       return axiosClient.post(url, payload);
    },
 };

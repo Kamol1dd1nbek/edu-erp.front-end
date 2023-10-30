@@ -1,5 +1,5 @@
 <template>
-   <div class="w-full">
+   <div class="w-full my-4">
       <label
          class="ml-4 text-baseText text-[19px] font-normal"
          v-if="labeled"
@@ -8,7 +8,7 @@
       >
       <vee-field
          v-if="masked"
-         class="w-full p-[16px] outline-none font-normal text-[18px] rounded my-[7px] border bg-white border-[rgba(0, 0, 0, 0.38)]"
+         class="w-full p-[16px] border border-[#0D1523] outline-none font-normal text-[18px] rounded my-[7px]  bg-white border-[rgba(0, 0, 0, 0.38)]"
          v-mask="'(+998) ##-###-##-##'"
          :placeholder="placeHolder"
          masked="true"
@@ -17,7 +17,7 @@
       />
       <vee-field
          v-else
-         class="w-full p-[16px] outline-none font-normal text-[21px] rounded mt-[7px]"
+         class="w-full p-[16px] outline-none border border-[#0D1523] font-normal text-[21px] rounded mt-[7px]"
          :placeholder="placeHolder"
          :type="type"
          :name="name"

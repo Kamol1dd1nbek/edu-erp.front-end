@@ -9,10 +9,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@hennge/vue3-pagination": "^1.0.17",
     "@jamescoyle/vue-icon": "^0.1.2",
     "@mdi/js": "^7.3.67",
     "@vee-validate/rules": "^4.11.8",
     "axios": "^1.5.1",
+    "element-plus": "^2.4.1",
+    "mosha-vue-toastify": "^1.0.23",
     "nprogress": "^0.2.0",
     "pinia": "^2.1.7",
     "vee-validate": "^4.11.8",

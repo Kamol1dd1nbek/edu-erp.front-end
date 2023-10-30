@@ -6,3 +6,8 @@
    box-sizing: border-box;
    font-family: Inter;
 }
+
+::-webkit-scrollbar {
+   width: 4px;
+   background-color: red;
+}

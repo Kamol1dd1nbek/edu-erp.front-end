@@ -1,6 +1,6 @@
 <template>
    <button
-      class="w-full flex items-center justify-center text-white rounded-lg border-none p-2"
+      class=" flex items-center justify-center text-white rounded-lg border-none p-2"
       :disabled="isLoading"
       :class="classes"
       type="submit"

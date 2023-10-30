@@ -1,7 +1,7 @@
 <template>
    <section class="w-full h-screen bg-baseBg flex items-center justify-center">
       <div
-         class="bg-white rounded w-[35%] flex justify-center flex-col items-center"
+         class="bg-white rounded w-[50%] flex justify-center flex-col items-center"
       >
          <p class="text-secondBg font-normal text-[32px] mt-[32px]">
             Log into your account

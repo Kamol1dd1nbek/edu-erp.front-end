@@ -1,8 +1,8 @@
-import adminStudentApi from "../api/admin/adminStudents";
+import adminStudentApi from "../../api/admin/adminStudents";
 import { defineStore } from "pinia";
-import Notification from "../plugins/Notification";
-export const useAdminStore = defineStore({
-   id: "admin",
+import Notification from "../../plugins/Notification";
+export const useStudentStore = defineStore({
+   id: "student",
    state: () => ({
       allStudents: {
          data: null,

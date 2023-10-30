@@ -1,6 +1,6 @@
 <template>
    <div>
-      <table>
+      <table v-if="!loading">
          <thead>
             <tr class="row100 head">
                <th v-for="(head, index) in header" :key="index">
@@ -11,10 +11,25 @@
          <tbody>
             <tr v-for="(item, i_index) in body" :key="i_index">
                <td v-for="(head, index) in header" :key="index">
-                  <slot v-if="!loading" :name="`body_${head.value}`" :item="item">{{
+                  <slot :name="`body_${head.value}`" :item="item">{{
                      item[head.value]
                   }}</slot>
-                  <slot v-else :name="`body_${head.value}`" :item="item">
+               </td>
+            </tr>
+         </tbody>
+      </table>
+      <table v-else>
+         <thead>
+            <tr class="row100 head">
+               <th v-for="(head, index) in header" :key="index">
+                  {{ head.title }}
+               </th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr v-for="(item, i_index) in mockArray" :key="i_index">
+               <td v-for="(head, index) in header" :key="index">
+                  <slot :name="`body_${head.value}`" :item="item">
                      <el-skeleton style="width: 240px" :loading="true" animated>
                         <template #template>
                            <el-skeleton-item variant="h3" style="width: 100%" />
@@ -31,16 +46,18 @@
 <script setup>
 const props = defineProps({
    header: Array,
-   body: Array,
-   loading: Boolean
+   body: {
+      type: Array,
+      default: [{ username: "" }, {}, {}, {}],
+   },
+   loading: Boolean,
 });
+const mockArray = [{}, {}, {}, {}, {}, {}];
 </script>
 
 <style lang="scss" scoped>
 table {
    width: 100%;
-   // border: 1px solid red;
-   // padding: 10px;
    border-collapse: separate;
    border-spacing: 0;
    overflow-x: auto;

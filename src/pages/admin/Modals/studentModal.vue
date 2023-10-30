@@ -70,7 +70,7 @@
 
 <script setup>
 import DeleteIcon from "../../../components/icons/DeleteIcon.vue";
-import { useAdminStore } from "../../../stores/admin";
+import { useStudentStore } from "../../../stores/admin/student";
 import { computed, ref, watch } from "vue";
 import Warning from "../../../components/ui/Alert.vue";
 import AppModal from "../../../components/ui/app-modal.vue";
@@ -103,7 +103,7 @@ watch(dialog, (value) => {
    if (!value) forms.value = {};
    adminStore.student.error = null;
 });
-const adminStore = useAdminStore();
+const adminStore = useStudentStore();
 
 const save = async (values) => {
    if (!forms.value.id) {
@@ -125,7 +125,6 @@ const deleteStudent = async (value) => {
    try {
       const deletedStudent = await adminStore.deleteStudent(unique_id.value);
    } catch (error) {
-      // console.log(error, "----------");
    }
 };
 

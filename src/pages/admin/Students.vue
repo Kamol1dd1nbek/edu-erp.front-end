@@ -64,9 +64,8 @@ import { mdiPencil } from "@mdi/js";
 import studentModal from "./Modals/studentModal.vue";
 import VButton from "../../components/form/VButton.vue";
 import AppTable from "../../components/ui/appTable.vue";
-import { useAdminStore } from "../../stores/admin";
+import { useStudentStore } from "../../stores/admin/student";
 import { onMounted, ref } from "vue";
-// import SvgIcon from "@jamescoyle/vue-icon";
 
 const openEditModal = (item) => {
    student_modal.value.openModal(item);
@@ -81,7 +80,7 @@ const params = {
    last_page: null,
 };
 
-const studentStore = useAdminStore();
+const studentStore = useStudentStore();
 
 const headers = ref([
    {

@@ -1,6 +1,6 @@
 <template>
    <button
-      class=" flex items-center justify-center text-white rounded-lg border-none p-2"
+      class=" flex items-center justify-center text-white p-2"
       :disabled="isLoading"
       :class="classes"
       type="submit"
@@ -33,9 +33,11 @@ import { computed } from "vue";
 
 // Variables
 const typeStyle = {
-   primary: "bg-secondBg",
-   danger: "bg-[crimson]",
-   info: "bg-[aqua]",
+   primary: "bg-secondBg rounded-lg border-none",
+   danger: "bg-[crimson]  rounded-lg border-none",
+   info: "bg-[aqua]  rounded-lg border-none",
+   danger_outline: "text-[crimson] border-2 border-[#FF5252] rounded-lg",
+   black_outline: "border-none text-[#202020] bg-[#f5f5f5]"
 };
 const classes = computed(() => typeStyle[props.btn_type]);
 

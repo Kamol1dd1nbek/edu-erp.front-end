@@ -39,6 +39,7 @@ const props = defineProps({
 <style lang="scss" scoped>
 table {
    width: 100%;
+   // border: 1px solid red;
    // padding: 10px;
    border-collapse: separate;
    border-spacing: 0;
@@ -68,9 +69,6 @@ table {
             color: #065fd4;
          }
       }
-      // tr:nth-child(even) {
-      //     background-color: #a9d1e8;
-      // }
       background: #f6fbff;
    }
 }

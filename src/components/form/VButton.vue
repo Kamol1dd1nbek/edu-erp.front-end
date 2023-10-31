@@ -49,7 +49,6 @@ const props = defineProps({
       default: false,
    },
 });
-console.log(props.btn_type);
 </script>
 
 <style lang="scss" scoped></style>

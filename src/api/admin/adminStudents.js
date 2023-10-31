@@ -14,7 +14,6 @@ const adminStudentApi = {
       return axiosClient.put(url, payload);
    },
    deleteStudent(id){
-      console.log(id, id, id);
       const url = `admin/delete-student/${id}`;
       return axiosClient.delete(url);
    }

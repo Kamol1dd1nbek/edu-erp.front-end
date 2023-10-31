@@ -1,6 +1,7 @@
 import adminStudentApi from "../../api/admin/adminStudents";
 import { defineStore } from "pinia";
 import Notification from "../../plugins/Notification";
+
 export const useStudentStore = defineStore({
    id: "student",
    state: () => ({
@@ -22,7 +23,7 @@ export const useStudentStore = defineStore({
             this.params = params;
             this.allStudents.loading = true;
             this.allStudents.data = await adminStudentApi.getStudents(params);
-            console.log(this.allStudents.data);
+            // console.log(this.allStudents.data);
             params.last_page = Math.ceil(
                this.allStudents.data.count / params.limit
             );
